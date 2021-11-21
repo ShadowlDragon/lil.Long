@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Smart House Control</title>
+        <link rel='stylesheet' href='style.css'>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css'>
+
+    </head>
+    <body>
+
+        <input type='checkbox' id='check'>
+        <!--header area start-->
+        <header>
+            <label for='check'>
+                <i class='fas fa-bars' id='sidebar_btn'></i>
+            </label>
+            <div class = 'left_area'>
+                <h3>Control and Monitor</h3>
+            </div>
+        </header>
+        <!--header area end-->
+        <!--sidebar start-->
+        <div class='sidebar'>
+            <center>
+                <img src='home.png' class='home' width="200" height="200" alt=''>
+                <h4>Smart home control</h4>
+            </center>
+            <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="monitor.html"><i class="fas fa-desktop"></i><span>Monitor</span></a>
+            <a href="control.html"><i class="fas fa-sliders-h"></i><span>Control</span></a>
+            <a href="member.html"><i class="fas fa-user-friends"></i><span>Member</span></a>
+        </div>
+        <!--sidebar end-->
+    
+        <div class='content'>
+            <br>
+            <br>
+            <br>
+            <div class='chartbox'>
+                <div><canvas id="myChart1" width='900px' height='900px'></canvas></div>
+                <div><canvas id="myChart2" width='900px' height='900px'></canvas></div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+            const ctx1 = document.getElementById('myChart1').getContext('2d');
+            const myChart1 = new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: ['0', '10', '20', '30', '40', '50'],
+                    datasets: [{
+                        label: 'Temperature',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: 'white',
+                        borderColor: 'white',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            const ctx2 = document.getElementById('myChart2').getContext('2d');
+            const myChart2 = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['0', '10', '20', '30', '40', '50'],
+                    datasets: [{
+                        label: 'Humidity',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor:'white',
+                        borderColor:'white',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            </script>
+        </div>
+</html>
